@@ -1,8 +1,8 @@
 /*
-	RESPOND VERSION 3.0
+	RESPONDY VERSION 1.1
 
 	defaults: (
-		compatability: false,
+		compatibility: false,
 		content-width: 1000,
 		columns: 12,
 		padding: 10,
@@ -90,7 +90,7 @@
 // @each key, value in 'map/list'
 @mixin Respondy( $layout-params: () ){
 	$respond-defaults: (
-		compatability: false,
+		compatibility: false,
 		content-width: 1000,
 		columns: 12,
 		padding: 10,
@@ -123,7 +123,7 @@
 		@include clearfix;
 	}
 	.row .row{
-		@if map-get($layout-params, compatability) {
+		@if map-get($layout-params, compatibility) {
 			margin-right: -1% * $padding;
 			margin-left: -1% * $padding;
 		} @else {
@@ -136,7 +136,7 @@
 
 	.cell {
 		position: relative;
-		@if map-get($layout-params, compatability) {
+		@if map-get($layout-params, compatibility) {
 			padding-left: $padding * 1%;
 			padding-right: $padding * 1%;
 		} @else {
@@ -199,7 +199,7 @@
 				@if $size == cell {
 					@extend .cell;
 				}
-				@if map-get($info, compatability) {
+				@if map-get($info, compatibility) {
 					width: ($i / $doc-columns * 100 - ($doc-padding * 2) * 1%) $isImportant;
 				} @else {
 					width: ($i / $doc-columns * 100%) $isImportant;
@@ -250,7 +250,7 @@
 			display: initial $isImportant;
 		}
 		@if $size != cell {
-			.#{cell}-vis{
+			.cell-vis.cell-vis{
 				display: none;
 			}
 		}
