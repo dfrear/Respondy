@@ -17,48 +17,48 @@
 	)
 */
 
-@function to-em($px-size, $em: 1) {
+@function Respondy-to-em($px-size, $em: 1) {
 	@return $px-size / ( 16 * $em ) + em;
 }
 
-@function to-rem($px-size) {
+@function Respondy-to-rem($px-size) {
 	@return $px-size / 16 + rem;
 }
 
-@mixin clearfix {
+@mixin Respondy-clearfix {
 	*zoom: 1;
 	&:before, &:after { content: " "; display: table; }
 	&:after { clear: both; }
 }
 
-@mixin gutters($amount:10){
+@mixin Respondy-gutter($amount:10){
 	.gutter{
-	padding: to-em($amount);
+		padding: Respondy-to-em($amount);
 
 		&-vertical{
-			padding-top: to-em($amount);
-			padding-bottom: to-em($amount);
+			padding-top: Respondy-to-em($amount);
+			padding-bottom: Respondy-to-em($amount);
 		}
 		&-horizontal{
-			padding-left: to-em($amount);
-			padding-right: to-em($amount);
+			padding-left: Respondy-to-em($amount);
+			padding-right: Respondy-to-em($amount);
 		}
 		&-top{
-			padding-top: to-em($amount);
+			padding-top: Respondy-to-em($amount);
 		}
 		&-bottom{
-			padding-bottom: to-em($amount);
+			padding-bottom: Respondy-to-em($amount);
 		}
 		&-left{
-			padding-left: to-em($amount);
+			padding-left: Respondy-to-em($amount);
 		}
 		&-right{
-			padding-left: to-em($amount);
+			padding-left: Respondy-to-em($amount);
 		}
 	}
 }
 
-@mixin aligns{
+@mixin Respondy-aligns{
 	.align{
 		&-center{
 			text-align: center;
@@ -113,22 +113,22 @@
 	}
 	$padding: map-get($layout-params, padding);
 
-	.cf{@include clearfix }
+	.cf{@include Respondy-clearfix }
 
 	.row {
 		width: 100%;
-		max-width:  to-em(map-get($layout-params, content-width));
+		max-width:  Respondy-to-em(map-get($layout-params, content-width));
 		margin-left: auto;
 		margin-right: auto;
-		@include clearfix;
+		@include Respondy-clearfix;
 	}
 	.row .row{
 		@if map-get($layout-params, compatibility) {
 			margin-right: -1% * $padding;
 			margin-left: -1% * $padding;
 		} @else {
-			margin-left: -(to-rem($padding));
-			margin-right: -(to-rem($padding));
+			margin-left: -(Respondy-to-rem($padding));
+			margin-right: -(Respondy-to-rem($padding));
 		}
 		width: auto;
 		max-width: none;
@@ -140,8 +140,8 @@
 			padding-left: $padding * 1%;
 			padding-right: $padding * 1%;
 		} @else {
-			padding-left: to-rem($padding);
-			padding-right: to-rem($padding);
+			padding-left: Respondy-to-rem($padding);
+			padding-right: Respondy-to-rem($padding);
 			box-sizing: border-box;
 		}
 		float: left;
@@ -168,7 +168,7 @@
 	$gen-types: ('base', 'offset', 'pushpull', 'vis');
 
 	@each $size-name, $size-info in map-get($layout-params, sizes){
-		@media(map-get($size-info, type): to-em(map-get($size-info, break))) {
+		@media(map-get($size-info, type): Respondy-to-em(map-get($size-info, break))) {
 			@each $type in $gen-types {
 				@if map-get($layout-params, $type) == true {
 					@include make-cell($size-name, $type, $layout-params);
