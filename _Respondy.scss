@@ -31,8 +31,8 @@
 	&:after { clear: both; }
 }
 
-@mixin Respondy-gutter($amount:10){
-	.gutter{
+@mixin Respondy-pad($amount:10){
+	.pad-#{$amount}{
 		padding: Respondy-to-em($amount);
 
 		&-vertical{
