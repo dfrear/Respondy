@@ -1,0 +1,11 @@
+@import '../Respondy';
+
+@include Respondy-pad(15);
+@include Respondy-aligns;
+
+@include Respondy((
+		columns: 3,
+		offset: true,
+		pushpull: true,
+		vis: true
+	));
