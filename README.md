@@ -16,8 +16,8 @@ A `@include Respondy()` with no options specified will be equivalent to:
 	pushpull: false,
 	vis: false,
 	sizes: (
-			sml: (break: 500, type: max-width),
-			lrg: (break: 800, type: min-width)
+			sml: max-width 500,
+			lrg: min-width 800
 		)
 ))
 ```
@@ -76,9 +76,9 @@ Setting this to true will include the vis system.
 
 ###sizes
 **Type:** Map,
-**Default:** `(sml: (break: 500, type: max-width), lrg: (break: 800, type: min-width))`
+**Default:** `(sml: max-width 500, lrg: min-width 800)`
 
-This map may contain any number of maps. The key of the maps will be the cell prefix. Each map should have the keys: break and type, type will be the media query attribute and break will be the value interpreted as a pixel value and converted to em units. 
+This map may contain any number of lists. The key of the maps will be the cell prefix. Each list should have the media query attribute by the value interpreted as a pixel value and converted to em units. 
 
 Example:
 ```sass

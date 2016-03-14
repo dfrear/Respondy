@@ -11,8 +11,8 @@
 		pushpull: false,
 		vis: false,
 		sizes: (
-				sml: (break: 500, type: max-width),
-				lrg: (break: 800, type: min-width)
+				sml: max-width 500,
+				lrg: min-width 800
 			)
 	)
 */
@@ -101,8 +101,8 @@
 	);
 	$default-sizes: (
 		sizes: (
-				sml: (break: 500, type: max-width),
-				lrg: (break: 800, type: min-width)
+				sml: max-width 500,
+				lrg: min-width 800
 			)
 		);
 
@@ -168,7 +168,7 @@
 	$gen-types: ('base', 'offset', 'pushpull', 'vis');
 
 	@each $size-name, $size-info in map-get($layout-params, sizes){
-		@media(map-get($size-info, type): Respondy-to-em(map-get($size-info, break))) {
+		@media(nth($size-info, 1): Respondy-to-em(nth($size-info, 2))) {
 			@each $type in $gen-types {
 				@if map-get($layout-params, $type) == true {
 					@include make-cell($size-name, $type, $layout-params);
