@@ -171,7 +171,7 @@
 		@media(nth($size-info, 1): Respondy-to-em(nth($size-info, 2))) {
 			@each $type in $gen-types {
 				@if map-get($layout-params, $type) == true {
-					@include make-cell($size-name, $type, $layout-params);
+					@include Respondy-make-cell($size-name, $type, $layout-params);
 				}
 			}
 		}
@@ -179,13 +179,13 @@
 
 	@each $type in $gen-types {
 		@if map-get($layout-params, $type) == true {
-			@include make-cell(cell, $type, $layout-params);
+			@include Respondy-make-cell(cell, $type, $layout-params);
 		}
 	}
 }
 
 
-@mixin make-cell( $size, $type, $info ) {
+@mixin Respondy-make-cell( $size, $type, $info ) {
 	$doc-columns: map-get($info, columns);
 	$doc-padding: map-get($info, padding);
 	$isImportant: null;

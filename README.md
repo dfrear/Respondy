@@ -1,6 +1,13 @@
 # Respondy
 A light responsive SASS grid framework with a balance between automation and user input.
 
+##To Do
+* Document mixins and functions.
+* Documen output classes.
+* Make 'sizes' media queries more customizable.
+* Mixin to add classes to 'sizes' defined media queries. `Respondy-media(lrg, .example { margin: auto 0; })`
+* Maybe add exclude option to stop printing of specific size/column `exclude: (sml: 1 2 5, lrg: 1 4)`.
+
 ##Options
 
 ###Defaults
@@ -78,20 +85,42 @@ Setting this to true will include the vis system.
 **Type:** Map,
 **Default:** `(sml: max-width 500, lrg: min-width 800)`
 
-This map may contain any number of lists. The key of the maps will be the cell prefix. Each list should have the media query attribute by the value interpreted as a pixel value and converted to em units. 
+This map may contain any number of lists. The key of the maps will be the cell prefix. Each list should have the media query attribute followed by a value interpreted as a pixel value and converted to em units. 
 
 Example:
 ```sass
-	(extra: (break: 1200, type: min-width))
+sizes: (
+	tiny: max-width 300,
+	large: min-width 800,
+	huge: min-width 1200
+)
 ```
 would create the following where columns: 2
 ```css
-	@media(min-width: 75em) {
-		.extra-1{
-			width: 50%;
-		}
-		.extra-2{
-			width: 100%;
-		}
+@media(min-width: 18.75em) {
+	.tiny-1{
+		width: 50%;
 	}
+	.tiny-2{
+		width: 100%;
+	}
+}
+
+@media(min-width: 50em) {
+	.large-1{
+		width: 50%;
+	}
+	.large-2{
+		width: 100%;
+	}
+}
+
+@media(min-width: 75em) {
+	.huge-1{
+		width: 50%;
+	}
+	.huge-2{
+		width: 100%;
+	}
+}
 ```
